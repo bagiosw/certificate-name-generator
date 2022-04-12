@@ -5,95 +5,127 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>CertName Input</title>
+	<title>CertName</title>
 	<link rel="stylesheet" href="./res/css/style.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<!-- Bootstrap -->
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+
+	<!-- Font Awesome -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+
+	<!-- MDB -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.0/mdb.min.css" rel="stylesheet" />
+
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+	<!-- animate.css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 </head>
 
-<body>
-	<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #171717;">
+<body onload="reload()">
+
+	<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #171717;">
 		<div class="container">
-			<a class="navbar-brand" href="#">
-				<img src="./img/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-				CertName Input
-			</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
+			<button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fas fa-bars"></i>
 			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<a class="navbar-brand mt-lg-0" href="#">
+					<img src="./img/logo.png" height="15" alt="" loading="lazy" style="margin-right: 0px;" />
+					ertName
+				</a>
+				<ul class="navbar-nav mb-lg-0">
 					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="#about" data-bs-toggle="modal">About</a>
+						<a class="nav-link" aria-current="page" href="#about" data-mdb-toggle="modal">About</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="#howto" data-bs-toggle="modal">How to Use</a>
+						<a class="nav-link" aria-current="page" href="#howto" data-mdb-toggle="modal">How to Use</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" aria-current="page" href="https://github.com/bagiosw/" target="_blank">GitHub</a>
 					</li>
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+							data-mdb-toggle="dropdown" aria-expanded="false">
 							Share
 						</a>
-						<ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-							<li><a class="dropdown-item" href="#">Whatsapp</a></li>
-							<li><a class="dropdown-item" href="#">Telegram</a></li>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item"
+									href="whatsapp://send?text=Check out this certificate name generator! https://github.com/bagiosw/certificate-name-generator"
+									data-action="share/whatsapp/share">Whatsapp</a></li>
+							<li><a class="dropdown-item"
+									href="https://t.me/share/url?url=https://github.com/bagiosw/certificate-name-generator&text=Check out this certificate name generator!">Telegram</a>
+							</li>
 						</ul>
 					</li>
-					<li class="nav-item ms-5">
-						<div class="nav-link form-switch form-check">
-							<label class="form-check-label" for="flexSwitchCheckDefault">Dark Mode</label>
-							<input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-						</div>
+					<li class="nav-item">
+						<a class="nav-link" aria-current="page" href="#faq" data-mdb-toggle="modal">FAQ</a>
 					</li>
 				</ul>
+			</div>
+
+			<div class="d-flex align-items-center">
 			</div>
 		</div>
 	</nav>
 
-	<section class="pt-4 pb-4" style="height: auto; background-color: #202124">
+	<section class="pt-4 pb-4" style="height: auto; background-color:#262626;">
 		<div class="container-lg">
 			<div class="row">
-				<div class="col-xl-8 mb-1">
-					<div class="card" style="background-color: #303134;">
+				<div class="col-md-8 mb-1">
+					<div class="custom-card1 animate__animated animate__fadeInLeft animate__fast">
+						<div class="canvas-ph text-center" id="canvas-ph">
+							<i class="fas fa-image" style="font-size: 90px;"></i>
+						</div>
 						<canvas id="myCanvas" width="3508" height="2480"></canvas>
 					</div>
 				</div>
-				<div class="col-xl-4">
-					<div class="card" style="background-color: #303134;">
-						<div class="card-body text-white">
-							<div class="mb-2 d-grid">
+				<div class="col-md-4">
+					<div class="custom-card2 animate__animated animate__slideInUp animate__fast">
+						<div class="card-body pb-3">
+							<div class="mb-4 d-grid">
 								<label for="formGroupExampleInput" class="form-label">Choose Image:</label>
-								<input class="form-control form-control-sm" type="file" name="img" id="uploadimage">
+								<input class="form-control form-control-md" type="file" name="img" id="uploadimage"
+									accept="image/png, image/jpeg">
 								<a class="btn btn-primary btn-sm mt-1" href="img/img.jpg" role="button" target="_blank">Download
 									Sample Image</a>
 							</div>
-							<div class="mb-1">
-								<label for="formGroupExampleInput" class="form-label">Name:</label>
-								<input type="text" class="form-control" id="name" placeholder="Your Name" onkeyup="draw()">
+							<div class="mb-4">
+								<div class="form-outline">
+									<input type="text" id="name" class="form-control" onkeyup="draw()" />
+									<label class="form-label" for="form12">Full name</label>
+								</div>
 							</div>
-							<div class="mb-1">
-								<label for="formGroupExampleInput" class="form-label">Font-family:</label>
-								<input type="text" class="form-control" id="family" placeholder="Font-family" value="Arial"
-									onchange="draw()">
+							<div class="mb-2">
+								<div class="form-outline input-group">
+									<input type="text" class="form-control" id="family"
+										placeholder="Type any installed font name, ex: calibri" value="arial" onchange="draw()">
+									<a class="btn btn-primary" aria-current="page" href="#faq" data-mdb-toggle="modal">Help (?)</a>
+									<label class="form-label" for="form12">Font family</label>
+								</div>
 							</div>
-							<div class="row mb-1">
+							<div class="row mb-3">
 								<div class="col">
-									<label for="formGroupExampleInput2" class="form-label">Font Size:</label>
-									<input type="number" class="form-control" id="size" value="100" placeholder="" oninput="draw()">
+									<label for="formGroupExampleInput2" class="form-label" id="test">Font:</label>
+									<div class="form-outline">
+										<input type="number" class="form-control" id="size" value="100" placeholder="" oninput="draw()">
+										<label class="form-label" for="form12">Font size</label>
+									</div>
 								</div>
 								<div class="col">
-									<label for="exampleColorInput" class="form-label">Font Color:</label>
-									<input type="color" class="form-control form-control-color" id="colorInput" value="#474747"
+									<label for="exampleColorInput" class="form-label opacity-100">Color:</label>
+									<input type="color" class="form-control form-control-color" id="colorInput" value="#0D0D0D"
 										title="Choose your color" oninput="draw()">
 								</div>
 							</div>
-							<div class="row mb-1">
+							<div class="row mb-3">
 								<div class="col">
 									<select class="form-select" id="weight" onchange="draw()">
 										<option value="normal">normal</option>
@@ -108,33 +140,34 @@
 									</div>
 								</div>
 							</div>
-							<div class="mb-1">
+							<div class="mb-0">
 								<label for="customRange1" class="form-label" id="vValue">Vertical Position</label>
 								<input type="range" class="form-range" id="rVertical" min="90" max="2400" oninput="draw()">
 							</div>
-							<div class="mb-1">
+							<div class="mb-0">
 								<label for="customRange1" class="form-label" id="hValue">Horizontal Position</label>
-								<input type="range" class="form-range" id="rHorizontal" min="100" max="3200" oninput="draw()">
+								<input type="range" class="form-range" id="rHorizontal" min="100" max="3200" oninput="draw()" value="">
 							</div>
 							<div class="row mb-3">
 								<label for="customRange1" class="form-label">Resolution</label>
 								<div class="col">
 									<div class="input-group">
 										<div class="input-group-text">Width</div>
-										<input type="number" class="form-control" placeholder="" id="canvasW" oninput="myCanvas()" readonly>
+										<input type="number" class="form-control" placeholder="" id="canvasW" readonly>
 									</div>
 								</div>
 								<div class="col">
 									<div class="input-group">
 										<div class="input-group-text">Height</div>
-										<input type="number" class="form-control" placeholder="" id="canvasH" oninput="myCanvas()" readonly>
+										<input type="number" class="form-control" placeholder="" id="canvasH" readonly>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="card-footer bg-warning">
-							<label for="customRange1" class="form-label"><b>To save the image, right click on the image, and then save
-									image.</b></label>
+							<div class="mb-0">
+								<button class="btn btn-block btn-primary" onclick="saveImage()"><i
+										class="fas fa-cloud-download-alt"></i>
+									Download Image</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -142,14 +175,11 @@
 		</div>
 	</section>
 
-	<section class="text-white text-center pt-4 pb-2" style="background-color: #171717;">
-		<p class="text-center">&copy;2021 - <a href="https://github.com/bagiosw/" class="link-warning"><b>Imam Subagio
+	<section class="text-white text-center pt-4 pb-2 bg-primary">
+		<p class="text-center">&copy;2021 - <a href="https://github.com/bagiosw/" class="link-white"><b>Imam Subagio
 					Wibowo</b></a>
 		</p>
 	</section>
-
-	<!-- Button trigger modal -->
-
 
 	<!-- Modal -->
 	<div class="modal fade" id="changeimage" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -157,7 +187,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLabel">How to change the image</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					<button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<p>To change the certificate, follow steps below:</p>
@@ -184,11 +214,12 @@
 				<div class="modal-body">
 					<b>CertName Input</b> is a simple application that can be used to easily enter the name on the certificate
 					without
-					having to use any image editor software. You only need to prepare a blank certificate image file with no name,
+					having to use any image editor software. You only need to prepare a blank certificate image template file with
+					no name,
 					and then use this app to input the name directly and customize font position and color. <br>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cool !</button>
+					<button type="button" class="btn btn-primary" data-mdb-dismiss="modal">Cool !</button>
 				</div>
 			</div>
 		</div>
@@ -204,27 +235,73 @@
 				<div class="modal-body">
 					<ol>
 						<li>Select a certificate image to be used. The recommended size is 3508 pixels x 2480 pixel, but you are
-							free to use any size of it.</li>
-						<li>Enter the name of the recipient.</li>
-						<li>Adjust the font size and color for the text.</li>
-						<li>Adjust the position of the text vertically or horizontally.</li>
+							free to use any size of certificate.</li>
+						<li>Enter the full name of the recipient.</li>
+						<li>Adjust the font size, color, and styling of the text.</li>
+						<li>Adjust the text vertical or horizontal position.</li>
+						<li>Click SAVE IMAGE.</li>
 					</ol>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood !</button>
+					<button type="button" class="btn btn-primary" data-mdb-dismiss="modal">Understood !</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
+	<div class="modal fade" id="faq" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-scrollable">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="staticBackdropLabel">FAQ</h5>
+				</div>
+				<div class="modal-body">
+					<p><b>How to insert the certificate image?</b><br>
+						To insert the certificate image, click on the <b>Choose File</b> and select the certificate image you wanna
+						use.</p>
+					<p>
+						<b>How do I know the name of the font?</b><br>
+						Well, first of all, you can use all the font that's installed on this device. But if you don't know what's
+						the
+						name of the font, the easiest steps are:
+					<ol>
+						<li>Open the <b>Notepad</b> app.</li>
+						<li>At the top menu bar, click on <b>Format</b> > <b>Font...</b></li>
+						<li>There you can test any font that's installed on your device. Remember the name of the font.</li>
+						<li>Go back to CertName app, and enter the name of the font.</li>
+					</ol>
+					</p>
+					<p>
+						<b>Why I can't see the recipient name?</b>
+					<ol>
+						<li>Make sure you already load a certificate image, to insert the image, click on the <b>Choose File</b> and
+							select the
+							certificate image you wanna use.</li>
+						<li>After that, enter the recipient name. The text will automatically printed on the image.</li>
+						<li>If you still couldn't see the image, try changing the vertical and horizontal slider position until you
+							see the text. The smaller the image is, chances are you probably wanna set the slider to the left.
+						</li>
+					</ol>
+					<p><b>How can I use this offline without having to visit this website?</b><br>
+						Unfortunoately, I'm still finishing the desktop version of this app, so it would be available shortly.</p>
+				</div>
+				</p>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-mdb-dismiss="modal">Understood !</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
-	<script src="./res/js/generate.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+	<script src="./res/js/main.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
 		integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+		crossorigin="anonymous"></script> -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
 		integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous"></script> -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.0/mdb.min.js"></script>
 
 </body>
 
