@@ -4,7 +4,7 @@
 </p>
 
 ## What is Certificate Name Generator?
-CertName Input is a simple application that can be used to easily enter the name on the certificate without having to use any image editor software. You only need to prepare a blank certificate image template file with no name, and then use this app to input the name directly and customize font position and color.
+CertName Input is a simple tool that can be used to easily enter the name on the certificate without having to use any image editor software. You only need to prepare a blank certificate image template file with no name, and then use this app to input the name directly and customize font position and color.
 
 ## Installation Instruction
 ### A. Clone Repo
